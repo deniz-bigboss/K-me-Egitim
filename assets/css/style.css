@@ -1,0 +1,141 @@
+/* ===========================================================
+   Küme Eğitim Kurumları — özel stiller
+   Tailwind (CDN) üzerine eklenen küçük yardımcı sınıflar/animasyonlar
+   =========================================================== */
+
+:root {
+  --brand-900: #0e1f48;
+  --accent-400: #f9a826;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Bölüm bağlantılarında sabit başlığın altında kalmamak için */
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
+/* --- Gradient metin --- */
+.text-gradient {
+  background: linear-gradient(90deg, #1a3784 0%, #2f59c0 60%, #f9a826 140%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Hero arka plan deseni --- */
+.hero-pattern {
+  background-color: #0e1f48;
+  background-image:
+    radial-gradient(circle at 18% 20%, rgba(47, 89, 192, 0.45) 0, transparent 38%),
+    radial-gradient(circle at 85% 12%, rgba(249, 168, 38, 0.18) 0, transparent 32%),
+    radial-gradient(circle at 75% 85%, rgba(47, 89, 192, 0.30) 0, transparent 40%);
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* --- Görsel yer tutucu (client görselleri eklenince değiştirilecek) --- */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #64748b;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #f1f5f9,
+      #f1f5f9 12px,
+      #e9eef5 12px,
+      #e9eef5 24px
+    );
+  border: 1px dashed #cbd5e1;
+}
+
+.img-placeholder span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+}
+
+/* --- "Eklenecek" rozet işareti --- */
+.todo {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #a44e09;
+  background: #fff8eb;
+  border: 1px solid #fdd98a;
+  border-radius: 9999px;
+  padding: 0.05rem 0.5rem;
+  vertical-align: middle;
+}
+
+/* --- Scroll reveal animasyonu --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* --- SSS akordeon --- */
+.faq-item .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-item.open .faq-answer {
+  max-height: 480px;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* --- Aktif menü bağlantısı --- */
+.nav-link.active {
+  color: #1a3784;
+}
+.nav-link.active::after {
+  width: 100%;
+}
+.nav-link::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  margin-top: 2px;
+  background: #f9a826;
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
