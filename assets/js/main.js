@@ -47,6 +47,13 @@
     el.textContent = new Date().getFullYear();
   });
 
+  /* --- Otomatik "kaç yıllık" hesabı (kuruluş yılından) ---
+     Her yıl tarayıcıda kendiliğinden güncellenir. */
+  document.querySelectorAll('[data-years-since]').forEach(function (el) {
+    var since = parseInt(el.getAttribute('data-years-since'), 10);
+    if (since) el.textContent = new Date().getFullYear() - since;
+  });
+
   /* --- Scroll reveal --- */
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
@@ -64,10 +71,13 @@
   }
 
   /* --- İstatistik sayaç animasyonu --- */
-  const counters = document.querySelectorAll('[data-count]');
+  const counters = document.querySelectorAll('[data-count], [data-count-year]');
   if ('IntersectionObserver' in window && counters.length) {
     const animate = function (el) {
-      const target = parseFloat(el.getAttribute('data-count'));
+      const sinceYear = parseInt(el.getAttribute('data-count-year'), 10);
+      const target = sinceYear
+        ? (new Date().getFullYear() - sinceYear)
+        : parseFloat(el.getAttribute('data-count'));
       const suffix = el.getAttribute('data-suffix') || '';
       const dur = 1400;
       const start = performance.now();

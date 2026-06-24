@@ -1,31 +1,34 @@
 /* Tailwind CDN tema yapılandırması — tüm sayfalarda CDN scriptinden hemen sonra yüklenir */
+/* Siyah-beyaz (monokrom) tema */
 tailwind.config = {
   theme: {
     extend: {
       colors: {
+        /* Ana renk: gri tonları / siyah */
         brand: {
-          50:  '#eef3fc',
-          100: '#d6e1f7',
-          200: '#aec3ef',
-          300: '#7f9fe3',
-          400: '#5179d4',
-          500: '#2f59c0',
-          600: '#1f44a3',
-          700: '#1a3784',
-          800: '#16306d',
-          900: '#0e1f48',
+          50:  '#f7f7f7',
+          100: '#ededed',
+          200: '#d6d6d6',
+          300: '#b5b5b5',
+          400: '#909090',
+          500: '#6e6e6e',
+          600: '#4d4d4d',
+          700: '#2e2e2e',
+          800: '#1a1a1a',
+          900: '#0a0a0a',
         },
+        /* Vurgu: yine gri tonları (açık tonlar koyu zeminde, koyu tonlar açık zeminde okunur) */
         accent: {
-          50:  '#fff8eb',
-          100: '#feedc7',
-          200: '#fdd98a',
-          300: '#fbc14d',
-          400: '#f9a826',
-          500: '#e98c0b',
-          600: '#cb6d06',
-          700: '#a44e09',
-          800: '#853e0f',
-          900: '#6f3410',
+          50:  '#f4f4f4',
+          100: '#e6e6e6',
+          200: '#cfcfcf',
+          300: '#b0b0b0',
+          400: '#9a9a9a',
+          500: '#6b6b6b',
+          600: '#3f3f3f',
+          700: '#2b2b2b',
+          800: '#1c1c1c',
+          900: '#111111',
         },
       },
       fontFamily: {
@@ -36,8 +39,8 @@ tailwind.config = {
         '7xl': '80rem',
       },
       boxShadow: {
-        soft: '0 10px 40px -12px rgba(14, 31, 72, 0.18)',
-        card: '0 12px 32px -16px rgba(14, 31, 72, 0.25)',
+        soft: '0 10px 40px -12px rgba(0, 0, 0, 0.18)',
+        card: '0 12px 32px -16px rgba(0, 0, 0, 0.28)',
       },
     },
   },
