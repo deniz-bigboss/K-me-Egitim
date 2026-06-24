@@ -48,9 +48,10 @@
   });
 
   /* --- Otomatik "kaç yıllık" hesabı (kuruluş yılından) ---
-     Her yıl tarayıcıda kendiliğinden güncellenir. */
-  document.querySelectorAll('[data-years-since]').forEach(function (el) {
-    var since = parseInt(el.getAttribute('data-years-since'), 10);
+     Her yıl tarayıcıda kendiliğinden güncellenir. Değer hemen yazılır;
+     sayaçlı olanlar ayrıca animasyonla 0'dan hedefe sayar. */
+  document.querySelectorAll('[data-years-since], [data-count-year]').forEach(function (el) {
+    var since = parseInt(el.getAttribute('data-years-since') || el.getAttribute('data-count-year'), 10);
     if (since) el.textContent = new Date().getFullYear() - since;
   });
 
