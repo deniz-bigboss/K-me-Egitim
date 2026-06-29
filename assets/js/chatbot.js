@@ -14,9 +14,9 @@
   // Niyet (intent) tanımları — anahtar kelime -> cevap + yönlendirme
   var INTENTS = [
     {
-      keys: ['kurs', 'program', 'ders', 'tyt', 'ayt', 'yks', 'lgs', 'özel ders', 'mezun', 'etüt', 'sınıf'],
-      answer: 'TYT, AYT (YKS) ve LGS hazırlık programlarımızın yanı sıra birebir özel ders, mezun sınıfları ve deneme–etüt desteğimiz var. Detaylar için:',
-      actions: [['Kurslarımız', 'kurslar.html']]
+      keys: ['kurs', 'program', 'ders', 'tyt', 'ayt', 'yks', 'lgs', 'mezun', 'sınıf', 'destek', '8. sınıf', '9. sınıf', '10. sınıf', '11. sınıf', '12. sınıf', 'ortaokul', 'lise'],
+      answer: 'Programlarımız sınıf seviyesine göre düzenlidir:<br>• <b>8. sınıf</b> — LGS Hazırlık<br>• <b>9 / 10 / 11. sınıf</b> — Ders Desteği<br>• <b>12. sınıf & Mezun</b> — YKS (TYT–AYT) Hazırlık<br>Detaylar için:',
+      actions: [['Sınıf Programları', 'kurslar.html']]
     },
     {
       keys: ['kayıt', 'kaydol', 'ön kayıt', 'başvuru', 'nasıl kayıt', 'kayit'],
