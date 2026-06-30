@@ -71,6 +71,10 @@
       answer: 'Sık sorulan soruların cevaplarını burada bulabilirsiniz:',
       actions: [['Sıkça Sorulan Sorular', 'sss.html']] },
 
+    { keys: ['gizlilik', 'kvkk', 'kisisel veri', 'aydinlatma', 'cerez', 'veri politikasi', 'verilerim'],
+      answer: 'Kişisel verilerin korunması, gizlilik ve çerezler hakkında detaylı bilgiyi KVKK Aydınlatma Metni / Gizlilik Politikası sayfamızda bulabilirsiniz:',
+      actions: [['Gizlilik Politikası / KVKK', 'gizlilik.html']] },
+
     /* Genel program sorusu — en sona koyuldu (sınıf-özel olanlar öne geçsin) */
     { keys: ['kurs', 'program', 'ders', 'tyt', 'ayt', 'yks', 'sinif', 'akademik', 'hazirlik', 'destek', 'lise', 'ortaokul', 'hangi dersler'],
       answer: 'Programlarımız sınıf seviyesine göre düzenlidir:<br>• <b>8. sınıf</b> — LGS Hazırlık<br>• <b>9 / 10 / 11. sınıf</b> — Akademik Gelişim Programı<br>• <b>12. sınıf & Mezun</b> — YKS (TYT–AYT) Hazırlık<br>Hangi sınıf için bilgi almak istersiniz?',

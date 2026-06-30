@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/js/tw-config.js?v=7"></script>
-  <link rel="stylesheet" href="assets/css/style.css?v=7" />
+  <script src="assets/js/tw-config.js?v=8"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=8" />
 </head>
 <body class="font-sans text-slate-700 antialiased">
 
@@ -157,8 +157,8 @@
                 </select>
               </div>
               <div><label class="block text-sm font-semibold text-brand-900 mb-1">Mesajınız</label><textarea name="mesaj" rows="4" class="w-full rounded-xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-400" placeholder="Eklemek istedikleriniz..."></textarea></div>
+              <label class="flex items-start gap-2 text-xs text-slate-500"><input type="checkbox" name="kvkk" required class="mt-0.5 shrink-0" /><span><a href="gizlilik.html" target="_blank" class="text-brand-700 underline">KVKK Aydınlatma Metni ve Gizlilik Politikası</a>'nı okudum; kişisel verilerimin işlenmesini ve tarafımla iletişime geçilmesini kabul ediyorum.</span></label>
               <button type="submit" class="w-full inline-flex justify-center items-center gap-2 bg-brand-900 hover:bg-brand-700 text-white font-bold px-6 py-3.5 rounded-full transition">Formu Gönder</button>
-              <p class="text-xs text-slate-400 text-center">Form gönderildiğinde KVKK kapsamında bilgilerinizin işlenmesini kabul etmiş olursunuz.</p>
             </form>
           </div>
         </div>
@@ -217,7 +217,10 @@
     </div>
     <div class="mx-auto max-w-7xl px-4 mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-sm">
       <p>© <span data-year>2026</span> Küme Eğitim. Tüm hakları saklıdır.</p>
-      <p class="text-brand-100/60">Bakanlıklar / Çankaya / Ankara</p>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 justify-center">
+        <a href="gizlilik.html" class="hover:text-accent-400 transition">Gizlilik Politikası / KVKK</a>
+        <span class="text-brand-100/60">Bakanlıklar / Çankaya / Ankara</span>
+      </div>
     </div>
   </footer>
 
@@ -228,7 +231,7 @@
     <span class="hidden sm:inline">WhatsApp</span>
   </a>
 
-  <script src="assets/js/main.js?v=7"></script>
-  <script src="assets/js/chatbot.js?v=7"></script>
+  <script src="assets/js/main.js?v=8"></script>
+  <script src="assets/js/chatbot.js?v=8"></script>
 </body>
 </html>
