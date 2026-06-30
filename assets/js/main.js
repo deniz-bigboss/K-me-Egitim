@@ -47,6 +47,17 @@
     el.textContent = new Date().getFullYear();
   });
 
+  /* --- Otomatik kayıt/eğitim-öğretim yılı etiketi ---
+     Her yıl ŞUBAT ayında bir sonraki döneme geçer.
+     Örn: Şubat 2026 → "2026–2027", Şubat 2027 → "2027–2028". */
+  (function () {
+    var d = new Date();
+    var y = d.getMonth() >= 1 ? d.getFullYear() : d.getFullYear() - 1; // Şubat = getMonth() 1
+    document.querySelectorAll('[data-academic-year]').forEach(function (el) {
+      el.textContent = y + '–' + (y + 1);
+    });
+  })();
+
   /* --- Otomatik "kaç yıllık" hesabı (kuruluş yılından) ---
      Her yıl tarayıcıda kendiliğinden güncellenir. Değer hemen yazılır;
      sayaçlı olanlar ayrıca animasyonla 0'dan hedefe sayar. */
