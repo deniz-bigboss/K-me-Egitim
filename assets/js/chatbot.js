@@ -83,13 +83,19 @@
 
   var GREETING = 'Merhaba! 👋 Ben Küme Eğitim yardımcı asistanıyım. Sınıf programları, kayıt, adres veya iletişim hakkında sorularınızı tam cümleyle yazabilirsiniz. Size nasıl yardımcı olabilirim?';
   var FALLBACK = 'Bunu tam anlayamadım 🤔 Aşağıdaki başlıklardan birini seçebilir ya da doğrudan bize ulaşabilirsiniz:';
+  /* Çipler: { label, q } anahtar kelime sorgusu çalıştırır;
+     { label, answer, actions } doğrudan çok seçenekli cevap gösterir. */
   var CHIPS = [
-    ['8. Sınıf (LGS)', '8. sınıf'],
-    ['9-10-11 (Akademik)', '9. sınıf'],
-    ['12 & Mezun (YKS)', '12. sınıf'],
-    ['Ön Kayıt', 'kayıt'],
-    ['Adres', 'adres'],
-    ['İletişim', 'telefon']
+    { label: '8. Sınıf (LGS)', q: '8. sınıf' },
+    { label: '9-10-11 (Akademik)',
+      answer: '<b>Akademik Gelişim Programı</b> 9, 10 ve 11. sınıflar için sunulur. Detayını görmek istediğiniz sınıfı seçin:',
+      actions: [['9. Sınıf', 'sinif-9.html'], ['10. Sınıf', 'sinif-10.html'], ['11. Sınıf', 'sinif-11.html']] },
+    { label: '12 & Mezun (YKS)',
+      answer: '<b>YKS (TYT–AYT) Hazırlık</b> 12. sınıf ve mezun öğrenciler için sunulur. Seçiniz:',
+      actions: [['12. Sınıf', 'sinif-12.html'], ['Mezun', 'mezun.html']] },
+    { label: 'Ön Kayıt', q: 'kayıt' },
+    { label: 'Adres', q: 'adres' },
+    { label: 'İletişim', q: 'telefon' }
   ];
 
   function el(tag, cls, html) {
@@ -172,11 +178,15 @@
   function renderChips() {
     chipsWrap.innerHTML = '';
     CHIPS.forEach(function (c) {
-      var chip = el('button', 'kume-chip', c[0]);
+      var chip = el('button', 'kume-chip', c.label);
       chip.type = 'button';
       chip.addEventListener('click', function () {
-        addMsg(c[0], 'user');
-        botReply(c[1]);
+        addMsg(c.label, 'user');
+        if (c.answer) {
+          setTimeout(function () { addMsg(c.answer, 'bot', c.actions); }, 320);
+        } else {
+          botReply(c.q);
+        }
       });
       chipsWrap.appendChild(chip);
     });
