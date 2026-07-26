@@ -56,7 +56,7 @@
       answer: 'Adresimiz: Atatürk Bulvarı, Bulvar Palas İş Merkezi A Blok Kat 3 No: 141/79, Bakanlıklar / Çankaya / Ankara. Harita ve yol tarifi için:',
       actions: [['Konum & Harita', 'iletisim.html']] },
     { keys: ['telefon', 'numara', 'ara', 'arayabilir', 'ulas', 'iletisim', 'whatsapp', 'mail', 'e posta', 'eposta', 'mesaj'],
-      answer: 'Bize şu kanallardan ulaşabilirsiniz:<br>📞 ' + TEL_TEXT + '<br>✉️ info@kumeegitim.com',
+      answer: 'Bize şu kanallardan ulaşabilirsiniz:<br>📞 ' + TEL_TEXT + '<br>📞 0505 895 52 61<br>📞 0554 826 82 28<br>✉️ info@kumeegitim.com',
       actions: [['Ara', 'tel:' + TEL], ['WhatsApp', WA, 'alt'], ['Instagram', IG, 'alt']] },
     { keys: ['saat', 'calisma saat', 'acik', 'kacta', 'ne zaman acik', 'mesai', 'kacta aciliyor'],
       answer: 'Çalışma saatlerimiz Pazartesi–Cumartesi 09:00–19:00 arasındadır. Daha fazla bilgi için:',
