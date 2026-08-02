@@ -44,7 +44,7 @@ Ortak varlıklar `assets/` altındadır:
 3. Settings → Pages → Custom domain alanına `kumeegitim.com` yazıp
    **Enforce HTTPS** seçeneğini işaretleyin.
 
-> Not: `CNAME` dosyası, alan adına gerçekten erişim sağlandığında eklenecektir.
+> **Durum:** `CNAME` dosyası eklenmiştir; site `https://kumeegitim.com` adresinden yayınlanmaktadır. GitHub Pages ayarlarında Custom domain alanı `kumeegitim.com` olmalı ve **Enforce HTTPS** işaretli olmalıdır.
 
 ## 🛠️ Yerel önizleme
 
