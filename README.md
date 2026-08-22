@@ -46,6 +46,38 @@ Ortak varlıklar `assets/` altındadır:
 
 > **Durum:** `CNAME` dosyası eklenmiştir; site `https://kumeegitim.com` adresinden yayınlanmaktadır. GitHub Pages ayarlarında Custom domain alanı `kumeegitim.com` olmalı ve **Enforce HTTPS** işaretli olmalıdır.
 
+## 📰 Haberler ve Yönetim Paneli
+
+Site, `data/haberler.json` dosyasındaki haberleri otomatik olarak
+**Haberler** sayfasında ve anasayfadaki "Güncel duyurular" bölümünde gösterir.
+
+### Yönetim paneli — `https://kumeegitim.com/admin.html`
+
+Haber eklemek/düzenlemek/silmek için kullanılır. Panel, değişikliği doğrudan
+bu depoya commit eder; GitHub Pages 1–2 dakika içinde siteyi yeniler.
+
+**Giriş nasıl yapılır?**
+
+Panelde şifre yoktur — kimlik doğrulama **GitHub üzerinden** yapılır.
+Statik hosting'de (GitHub Pages) sunucu tarafı kod çalışmadığı için
+JavaScript'e gömülü bir şifre gerçek koruma sağlamaz; bu yüzden
+GitHub'ın kendi yetkilendirmesi kullanılır.
+
+Bir **fine-grained personal access token** oluşturun:
+
+1. GitHub → Settings → Developer settings
+2. Personal access tokens → **Fine-grained tokens** → Generate new token
+3. **Repository access:** Only select repositories → `K-me-Egitim`
+4. **Permissions → Repository permissions → Contents: Read and write**
+5. Oluşan anahtarı panele yapıştırın
+
+Anahtar yalnızca kullanıcının tarayıcısında (`localStorage`) saklanır,
+depoya veya başka bir yere gönderilmez. Yetki vermek istediğiniz her kişi
+kendi GitHub hesabından kendi anahtarını üretmelidir; yetkiyi geri almak
+için GitHub'dan o anahtarı iptal etmek yeterlidir.
+
+> `admin.html` arama motorlarına kapalıdır (`noindex` + `robots.txt`).
+
 ## 🛠️ Yerel önizleme
 
 Herhangi bir statik sunucu yeterli:
