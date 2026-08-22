@@ -10,7 +10,7 @@
   var HABER_YOL='data/haberler.json', PROG_YOL='data/programlar.json', PROG_DIZIN='assets/img/program';
   var ANAHTAR='kume_admin_token';
 
-  var SINIFLAR = [['sinif-9','9. Sınıf'],['sinif-10','10. Sınıf'],['sinif-11','11. Sınıf'],
+  var SINIFLAR = [['sinif-8','8. Sınıf'],['sinif-9','9. Sınıf'],['sinif-10','10. Sınıf'],['sinif-11','11. Sınıf'],
                   ['sinif-12','12. Sınıf'],['mezun','Mezun Grubu']];
 
   var token=null, haberSha=null, progSha=null, gorselSha={};
