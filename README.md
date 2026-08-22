@@ -78,6 +78,18 @@ için GitHub'dan o anahtarı iptal etmek yeterlidir.
 
 > `admin.html` arama motorlarına kapalıdır (`noindex` + `robots.txt`).
 
+### Ders programları
+
+Panelin **Ders Programları** sekmesinden 9, 10, 11, 12. sınıf ve mezun grubu
+için haftalık ders programı görseli yüklenir. Görsel tarayıcıda otomatik
+küçültülür (en fazla 1600 px genişlik, JPEG) ve `assets/img/program/` altına
+yüklenir; kayıt `data/programlar.json` dosyasında tutulur.
+
+Program yüklenmemiş sınıfların sayfasında bu bölüm hiç görünmez.
+Kabul edilen dosyalar: JPG, PNG. (PDF ise ekran görüntüsü alınmalıdır.)
+
+> 8. sınıf da istenirse aynı şekilde eklenebilir; şu an listede yoktur.
+
 ## 🛠️ Yerel önizleme
 
 Herhangi bir statik sunucu yeterli:

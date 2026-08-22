@@ -15,7 +15,6 @@
 </head>
 <body class="font-sans text-slate-700 bg-slate-100 min-h-screen">
 
-  <!-- ÜST BAR -->
   <header class="bg-brand-900 text-white">
     <div class="mx-auto max-w-5xl px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -34,18 +33,18 @@
 
     <!-- ============ GİRİŞ ============ -->
     <section id="giris-ekrani">
-      <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-card border border-slate-200 p-8">
+      <div class="max-w-xl mx-auto bg-white rounded-2xl shadow-card border border-slate-200 p-8">
         <h1 class="font-display font-extrabold text-2xl text-brand-900 mb-2">Yönetici Girişi</h1>
         <p class="text-sm text-slate-600 mb-6">
-          Haber eklemek için GitHub erişim anahtarınızı girin. Anahtar yalnızca bu tarayıcıda saklanır,
-          hiçbir yere gönderilmez.
+          Bu panelden haber ekleyebilir ve sınıfların ders programlarını yükleyebilirsiniz.
+          Giriş için bir kez <strong>erişim anahtarı</strong> oluşturmanız gerekiyor.
         </p>
 
-        <label class="block text-sm font-semibold text-brand-900 mb-1">GitHub Erişim Anahtarı (Token)</label>
-        <input id="token" type="password" placeholder="github_pat_… veya ghp_…"
+        <label class="block text-sm font-semibold text-brand-900 mb-1">Erişim Anahtarı</label>
+        <input id="token" type="password" placeholder="github_pat_… ile başlayan anahtar"
                class="w-full rounded-xl border border-slate-300 px-4 py-3 mb-3 focus:outline-none focus:ring-2 focus:ring-brand-400" />
         <label class="flex items-center gap-2 text-sm text-slate-600 mb-5">
-          <input id="hatirla" type="checkbox" checked /> Bu cihazda hatırla
+          <input id="hatirla" type="checkbox" checked /> Bu cihazda hatırla (bir daha sormasın)
         </label>
 
         <button id="giris-btn"
@@ -54,92 +53,130 @@
         </button>
         <p id="giris-mesaj" class="text-sm mt-4"></p>
 
-        <details class="mt-6 text-sm text-slate-600">
-          <summary class="cursor-pointer font-semibold text-brand-900">Anahtarı nasıl alırım?</summary>
-          <ol class="list-decimal pl-5 mt-3 space-y-1.5">
-            <li>GitHub → sağ üst profil → <strong>Settings</strong></li>
-            <li>En altta <strong>Developer settings</strong></li>
-            <li><strong>Personal access tokens → Fine-grained tokens → Generate new token</strong></li>
-            <li><strong>Repository access:</strong> Only select repositories → <code>K-me-Egitim</code></li>
-            <li><strong>Permissions → Repository permissions → Contents: Read and write</strong></li>
-            <li>Oluştur, çıkan anahtarı kopyalayıp buraya yapıştır</li>
+        <div class="mt-7 pt-6 border-t border-slate-200">
+          <h2 class="font-bold text-brand-900 mb-3">İlk kez mi giriyorsunuz?</h2>
+          <p class="text-sm text-slate-600 mb-4">
+            Anahtarı bir kez oluşturmanız yeterli; sonra hep aynısını kullanırsınız.
+            Aşağıdaki butona basın ve açılan GitHub sayfasında şu 4 ayarı yapın:
+          </p>
+          <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-2 mb-5">
+            <li><strong>Token name:</strong> istediğiniz bir isim (örn. <em>Kume Panel</em>)</li>
+            <li><strong>Expiration:</strong> <em>No expiration</em> seçin (yoksa süresi dolunca yenilemeniz gerekir)</li>
+            <li><strong>Repository access:</strong> <em>Only select repositories</em> → listeden
+                <strong>K-me-Egitim</strong> seçin</li>
+            <li><strong>Permissions → Repository permissions → Contents</strong> satırını
+                <strong>Read and write</strong> yapın</li>
           </ol>
-          <p class="mt-3">Anahtarı kimseyle paylaşmayın. Kaybolursa GitHub'dan iptal edip yenisini üretebilirsiniz.</p>
-        </details>
+          <p class="text-sm text-slate-600 mb-4">
+            Sayfanın en altındaki <strong>Generate token</strong> butonuna basın.
+            Ekranda çıkan uzun yazıyı kopyalayıp yukarıdaki kutuya yapıştırın.
+            <strong>Bu yazı yalnızca bir kez gösterilir</strong>, kaybederseniz yenisini oluşturursunuz.
+          </p>
+          <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold px-5 py-2.5 rounded-full transition text-sm">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.72-4.04-1.42-4.04-1.42-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.21.08 1.85 1.24 1.85 1.24 1.08 1.84 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0012 .5z"/></svg>
+            Anahtar Oluştur (GitHub)
+          </a>
+          <p class="text-xs text-slate-400 mt-4">
+            Anahtarınız yalnızca kendi tarayıcınızda saklanır, kimseyle paylaşılmaz.
+            Anahtarı kaybederseniz veya birine verirseniz GitHub'dan iptal edip yenisini üretebilirsiniz.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- ============ PANEL ============ -->
     <section id="panel" class="hidden">
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <div>
-          <h1 class="font-display font-extrabold text-2xl text-brand-900">Haberler ve Duyurular</h1>
-          <p class="text-sm text-slate-600">Buradan eklediğiniz haberler siteye otomatik yansır.</p>
-        </div>
-        <button id="yeni-btn" class="inline-flex items-center gap-2 bg-brand-900 hover:bg-brand-700 text-white font-bold px-5 py-2.5 rounded-full transition">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-          Yeni Haber
+
+      <!-- Sekmeler -->
+      <div class="flex gap-2 mb-6 border-b border-slate-300">
+        <button data-sekme="haberler" class="sekme-btn px-5 py-3 font-bold border-b-2 border-brand-900 text-brand-900">
+          Haberler
+        </button>
+        <button data-sekme="programlar" class="sekme-btn px-5 py-3 font-bold border-b-2 border-transparent text-slate-500 hover:text-brand-900">
+          Ders Programları
         </button>
       </div>
 
       <div id="durum" class="hidden mb-5 rounded-xl px-4 py-3 text-sm"></div>
 
-      <!-- FORM -->
-      <div id="form-kutu" class="hidden bg-white rounded-2xl shadow-card border border-slate-200 p-6 mb-6">
-        <h2 id="form-baslik" class="font-display font-bold text-xl text-brand-900 mb-5">Yeni Haber</h2>
-        <input id="f-id" type="hidden" />
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="sm:col-span-2">
-            <label class="block text-sm font-semibold text-brand-900 mb-1">Başlık *</label>
-            <input id="f-baslik" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-400" placeholder="Örn: 2026–2027 Kayıtlarımız Başladı" />
+      <!-- ---------- HABERLER ---------- -->
+      <div id="sekme-haberler">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <p class="text-sm text-slate-600">Eklediğiniz haberler anasayfada ve Haberler sayfasında görünür.</p>
+          <button id="yeni-btn" class="inline-flex items-center gap-2 bg-brand-900 hover:bg-brand-700 text-white font-bold px-5 py-2.5 rounded-full transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            Yeni Haber
+          </button>
+        </div>
+
+        <div id="form-kutu" class="hidden bg-white rounded-2xl shadow-card border border-slate-200 p-6 mb-6">
+          <h2 id="form-baslik" class="font-display font-bold text-xl text-brand-900 mb-5">Yeni Haber</h2>
+          <input id="f-id" type="hidden" />
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-semibold text-brand-900 mb-1">Başlık *</label>
+              <input id="f-baslik" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-400" placeholder="Örn: 2026–2027 Kayıtlarımız Başladı" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-brand-900 mb-1">Tarih *</label>
+              <input id="f-tarih" type="date" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-400" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-brand-900 mb-1">Kategori</label>
+              <select id="f-kategori" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-brand-400">
+                <option>Duyuru</option><option>Eğitim</option><option>Başarı</option>
+                <option>Etkinlik</option><option>Kayıt</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-semibold text-brand-900 mb-1">Görsel</label>
+              <select id="f-gorsel" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-brand-400">
+                <option value="">(Görsel yok)</option>
+                <option value="assets/img/kurum-sinif-1.jpg">Sınıf 1</option>
+                <option value="assets/img/kurum-sinif-2.jpg">Sınıf 2</option>
+                <option value="assets/img/kurum-sinif-3.jpg">Sınıf 3 (aydınlık)</option>
+                <option value="assets/img/kurum-sinif-4.jpg">Sınıf 4</option>
+                <option value="assets/img/kurum-etut-1.jpg">Etüt salonu 1</option>
+                <option value="assets/img/kurum-etut-2.jpg">Etüt salonu 2</option>
+                <option value="assets/img/kurum-calisma-alani.jpg">Çalışma alanı</option>
+                <option value="assets/img/kurum-marka-duvari.jpg">Marka duvarı</option>
+                <option value="assets/img/kurum-lobi.jpg">Lobi</option>
+                <option value="assets/img/kurum-kayit-kabul.jpg">Kayıt kabul</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-semibold text-brand-900 mb-1">Kısa Özet *</label>
+              <textarea id="f-ozet" rows="2" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-400" placeholder="Kartlarda görünecek 1-2 cümlelik özet"></textarea>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-semibold text-brand-900 mb-1">İçerik</label>
+              <textarea id="f-icerik" rows="7" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-400" placeholder="Haberin tam metni. Paragraf için boş satır bırakın."></textarea>
+            </div>
           </div>
-          <div>
-            <label class="block text-sm font-semibold text-brand-900 mb-1">Tarih *</label>
-            <input id="f-tarih" type="date" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-400" />
-          </div>
-          <div>
-            <label class="block text-sm font-semibold text-brand-900 mb-1">Kategori</label>
-            <select id="f-kategori" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-brand-400">
-              <option>Duyuru</option><option>Eğitim</option><option>Başarı</option>
-              <option>Etkinlik</option><option>Kayıt</option>
-            </select>
-          </div>
-          <div class="sm:col-span-2">
-            <label class="block text-sm font-semibold text-brand-900 mb-1">Görsel</label>
-            <select id="f-gorsel" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-brand-400">
-              <option value="">(Görsel yok)</option>
-              <option value="assets/img/kurum-sinif-1.jpg">Sınıf 1</option>
-              <option value="assets/img/kurum-sinif-2.jpg">Sınıf 2</option>
-              <option value="assets/img/kurum-sinif-3.jpg">Sınıf 3 (aydınlık)</option>
-              <option value="assets/img/kurum-sinif-4.jpg">Sınıf 4</option>
-              <option value="assets/img/kurum-etut-1.jpg">Etüt salonu 1</option>
-              <option value="assets/img/kurum-etut-2.jpg">Etüt salonu 2</option>
-              <option value="assets/img/kurum-calisma-alani.jpg">Çalışma alanı</option>
-              <option value="assets/img/kurum-marka-duvari.jpg">Marka duvarı</option>
-              <option value="assets/img/kurum-lobi.jpg">Lobi</option>
-              <option value="assets/img/kurum-kayit-kabul.jpg">Kayıt kabul</option>
-            </select>
-          </div>
-          <div class="sm:col-span-2">
-            <label class="block text-sm font-semibold text-brand-900 mb-1">Kısa Özet *</label>
-            <textarea id="f-ozet" rows="2" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-400" placeholder="Kartlarda görünecek 1-2 cümlelik özet"></textarea>
-          </div>
-          <div class="sm:col-span-2">
-            <label class="block text-sm font-semibold text-brand-900 mb-1">İçerik</label>
-            <textarea id="f-icerik" rows="7" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-400" placeholder="Haberin tam metni. Paragraf için boş satır bırakın."></textarea>
+          <div class="flex flex-wrap gap-3 mt-5">
+            <button id="kaydet-btn" class="bg-brand-900 hover:bg-brand-700 text-white font-bold px-6 py-2.5 rounded-full transition">Kaydet ve Yayınla</button>
+            <button id="iptal-btn" class="bg-slate-200 hover:bg-slate-300 text-brand-900 font-semibold px-6 py-2.5 rounded-full transition">İptal</button>
           </div>
         </div>
-        <div class="flex flex-wrap gap-3 mt-5">
-          <button id="kaydet-btn" class="bg-brand-900 hover:bg-brand-700 text-white font-bold px-6 py-2.5 rounded-full transition">Kaydet ve Yayınla</button>
-          <button id="iptal-btn" class="bg-slate-200 hover:bg-slate-300 text-brand-900 font-semibold px-6 py-2.5 rounded-full transition">İptal</button>
-        </div>
+
+        <div id="liste" class="space-y-3"></div>
       </div>
 
-      <!-- LİSTE -->
-      <div id="liste" class="space-y-3"></div>
+      <!-- ---------- DERS PROGRAMLARI ---------- -->
+      <div id="sekme-programlar" class="hidden">
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-6 text-sm text-slate-600">
+          <p class="mb-2"><strong class="text-brand-900">Nasıl çalışır?</strong>
+          Ders programının <strong>fotoğrafını veya ekran görüntüsünü</strong> seçin — otomatik olarak
+          küçültülüp siteye yüklenir ve o sınıfın sayfasında görünür.</p>
+          <p>Program yüklenmemiş sınıflarda bu bölüm sitede hiç görünmez.
+          Kabul edilen dosyalar: <strong>JPG, PNG</strong> (PDF ise ekran görüntüsü alın).</p>
+        </div>
+        <div id="program-listesi" class="space-y-4"></div>
+      </div>
     </section>
   </main>
 
-  <script src="assets/js/admin.js?v=13"></script>
+  <script src="assets/js/admin.js?v=14"></script>
 </body>
 </html>
