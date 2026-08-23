@@ -27,29 +27,29 @@
 
   /* Niyetler — sınıfa özel olanlar önce (skor eşitliğinde öncelikli). */
   var INTENTS = [
-    { keys: ['8 sinif', 'sekizinci', 'lgs', '8inci', '8 inci'],
+    { a: 3, keys: ['8 sinif', 'sekizinci', 'lgs', '8inci', '8 inci'],
       answer: '<b>8. Sınıf · LGS Hazırlık</b><br>Tüm LGS derslerinde kazanım odaklı konu anlatımı, haftalık denemeler ve birebir etüt sunuyoruz. Detaylı hizmetler için:',
       actions: [['8. Sınıf Programı', 'sinif-8.html']] },
-    { keys: ['9 sinif', 'dokuzuncu', '9uncu', '9 uncu'],
+    { a: 3, keys: ['9 sinif', 'dokuzuncu', '9uncu', '9 uncu'],
       answer: '<b>9. Sınıf · Akademik Gelişim Programı</b><br>Okul derslerine paralel takviye, eksik kapatma ve düzenli etütlerle güçlü temel. Detaylı hizmetler için:',
       actions: [['9. Sınıf Programı', 'sinif-9.html']] },
-    { keys: ['10 sinif', 'onuncu', '10uncu'],
+    { a: 3, keys: ['10 sinif', 'onuncu', '10uncu'],
       answer: '<b>10. Sınıf · Akademik Gelişim Programı</b><br>Branş bazlı takviye, düzenli ölçme ve alan seçimi rehberliği. Detaylı hizmetler için:',
       actions: [['10. Sınıf Programı', 'sinif-10.html']] },
-    { keys: ['11 sinif', 'on birinci', 'onbirinci', '11inci'],
+    { a: 3, keys: ['11 sinif', 'on birinci', 'onbirinci', '11inci'],
       answer: '<b>11. Sınıf · Akademik Gelişim Programı</b><br>Okul derslerine destek ve YKS\'ye erken hazırlık; alan derslerinde takviye ve deneme. Detaylı hizmetler için:',
       actions: [['11. Sınıf Programı', 'sinif-11.html']] },
-    { keys: ['12 sinif', 'on ikinci', 'onikinci', '12inci', 'son sinif'],
+    { a: 3, keys: ['12 sinif', 'on ikinci', 'onikinci', '12inci', 'son sinif'],
       answer: '<b>12. Sınıf · YKS (TYT–AYT) Hazırlık</b><br>Tam kapsamlı YKS hazırlığı: konu anlatımı, yoğun soru çözümü, deneme ve tercih danışmanlığı. Detaylı hizmetler için:',
       actions: [['12. Sınıf Programı', 'sinif-12.html']] },
-    { keys: ['mezun', 'tekrar', 'tekrar sinif', 'ek yerlestirme', 'sinava tekrar'],
+    { a: 3, keys: ['mezun', 'tekrar', 'tekrar sinif', 'ek yerlestirme', 'sinava tekrar'],
       answer: '<b>Mezun · YKS (TYT–AYT) Programı</b><br>Yoğunlaştırılmış tam zamanlı program, sürekli deneme, disiplinli etüt ve birebir hedef koçluğu. Detaylı hizmetler için:',
       actions: [['Mezun Programı', 'mezun.html']] },
 
-    { keys: ['kayit', 'kaydol', 'on kayit', 'basvuru', 'kayit ol', 'nasil kayit', 'kayit yaptir'],
+    { a: 2, keys: ['kayit', 'kaydol', 'on kayit', 'basvuru', 'kayit ol', 'nasil kayit', 'kayit yaptir'],
       answer: 'Ücretsiz ön kayıt için formu doldurabilir ya da bizi arayabilirsiniz. Tanışma görüşmesi ve seviye tespit sınavı ücretsizdir.',
       actions: [['Ön Kayıt Formu', 'iletisim.html'], ['Hemen Ara', 'tel:' + TEL, 'alt']] },
-    { keys: ['ucret', 'fiyat', 'kac para', 'ne kadar', 'taksit', 'odeme', 'maliyet', 'kac tl', 'ders ucreti'],
+    { a: 2, keys: ['ucret', 'fiyat', 'kac para', 'ne kadar', 'taksit', 'odeme', 'maliyet', 'kac tl', 'ders ucreti'],
       answer: 'Ücret ve ödeme seçenekleri programa ve sınıf seviyesine göre değişiyor. En güncel bilgi için sizi arayalım veya bize ulaşın:',
       actions: [['İletişim', 'iletisim.html'], ['WhatsApp', WA, 'alt']] },
     { keys: ['adres', 'konum', 'nerede', 'neresi', 'nasil gelir', 'yol tarifi', 'harita', 'sube', 'lokasyon', 'nerda', 'hangi semt'],
@@ -71,7 +71,7 @@
       answer: 'Sık sorulan soruların cevaplarını burada bulabilirsiniz:',
       actions: [['Sıkça Sorulan Sorular', 'sss.html']] },
 
-    { keys: ['gizlilik', 'kvkk', 'kisisel veri', 'aydinlatma', 'cerez', 'veri politikasi', 'verilerim'],
+    { a: 3, keys: ['gizlilik', 'kvkk', 'kisisel veri', 'aydinlatma', 'cerez', 'veri politikasi', 'verilerim'],
       answer: 'Kişisel verilerin korunması, gizlilik ve çerezler hakkında detaylı bilgiyi KVKK Aydınlatma Metni / Gizlilik Politikası sayfamızda bulabilirsiniz:',
       actions: [['Gizlilik Politikası / KVKK', 'gizlilik.html']] },
 
@@ -111,10 +111,10 @@
     if (!t) return null;
     var best = null, bestScore = 0;
     for (var i = 0; i < INTENTS.length; i++) {
-      var sc = 0;
+      var sc = 0, a = INTENTS[i].a || 1;
       for (var k = 0; k < INTENTS[i].keys.length; k++) {
         var key = norm(INTENTS[i].keys[k]);
-        if (key && t.indexOf(key) !== -1) sc += key.length;
+        if (key && t.indexOf(key) !== -1) sc += key.length * a;
       }
       if (sc > bestScore) { bestScore = sc; best = INTENTS[i]; }
     }
