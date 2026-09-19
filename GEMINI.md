@@ -1,4 +1,4 @@
-# CLAUDE.md
+# GEMINI.md
 
 Bu depodaki tüm ajan talimatları tek bir dosyada toplanmıştır.
 

@@ -5,6 +5,11 @@ Saf **HTML + CSS + JavaScript** ile yazılmıştır; **Tailwind CSS (CDN)** ile
 biçimlendirilmiştir. Derleme adımı (build step) yoktur — dosyalar olduğu gibi
 **GitHub Pages** üzerinde yayınlanır.
 
+> **Yapay zekâ kodlama asistanı kullanıyorsanız:** projenin mimarisi, kısıtları ve
+> tuzakları [`AGENTS.md`](./AGENTS.md) dosyasındadır. ChatGPT/Codex, Claude Code, Cursor,
+> Copilot ve Gemini CLI için depoda kendi dosya adlarıyla yönlendiriciler bulunur; hepsi
+> `AGENTS.md`'ye işaret eder. Bu README ise siteyi *kullanmak* içindir.
+
 ## 📁 Sayfa Yapısı
 
 | Dosya | Sayfa |

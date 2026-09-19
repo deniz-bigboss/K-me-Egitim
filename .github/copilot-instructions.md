@@ -1,4 +1,4 @@
-# CLAUDE.md
+# Copilot talimatları
 
 Bu depodaki tüm ajan talimatları tek bir dosyada toplanmıştır.
 

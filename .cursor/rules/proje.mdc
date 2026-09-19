@@ -1,0 +1,11 @@
+---
+description: Küme Eğitim statik sitesi — proje talimatları
+alwaysApply: true
+---
+
+Bu depodaki tüm ajan talimatları tek bir dosyada toplanmıştır.
+
+**Lütfen depo kökündeki `AGENTS.md` dosyasını okuyun ve oradaki talimatlara uyun.**
+Mimari, kısıtlar, içerik kuralları ve tuzakların tamamı oradadır.
+
+Talimat değişiklikleri `AGENTS.md` dosyasına yazılmalıdır; bu dosya yalnızca yönlendirmedir.
